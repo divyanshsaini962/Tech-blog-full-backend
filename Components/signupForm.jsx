@@ -10,6 +10,7 @@ const initialState ={
   password:""
 }
 const signupForm = () => {
+  const NextUrl = process.env.NEXTAUTH_URL;
   const [hydrated,setHydrated] = useState(false);
   const [state,setState] = useState(initialState);
   const [error,setError] = useState("");
@@ -46,7 +47,7 @@ const signupForm = () => {
     name, email, password
    }
 
-   const response = await fetch("http://localhost:3000/api/signup",{
+   const response = await fetch(`${NextUrl}/api/signup`,{
     headers:{
       "Content-Type":"application/json"
     },

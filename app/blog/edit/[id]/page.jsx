@@ -22,6 +22,7 @@ const initialState = {
 };
 
 const EditBlog = ({ params }) => {
+  const NextUrl = process.env.NEXTAUTH_URL;
   const CLOUD_NAME = env.CLOUD_NAME
   const UPLOAD_PRESET = env.UPLOAD_PRESET
 
@@ -36,7 +37,7 @@ const EditBlog = ({ params }) => {
   useEffect(() => {
     async function fetchBlogs() {
       try {
-        const res = await fetch(`http://localhost:3000/api/blog/${params.id}`);
+        const res = await fetch(`${NextUrl}/api/blog/${params.id}`);
 
         if (res.status === 200) {
           const blogData = await res.json();
@@ -147,7 +148,7 @@ const EditBlog = ({ params }) => {
       };
 
       const response = await fetch(
-        `http://localhost:3000/api/blog/${params.id}`,
+        `${NextUrl}/api/blog/${params.id}`,
         {
           headers: {
             "Content-Type": "application/json",

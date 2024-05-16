@@ -20,6 +20,7 @@ import Input from "../../../Components/input";
 import { deletePhoto } from "@/action/uploadAction";
 
 function splitParagraph(paragraph) {
+  const NextUrl = process.env.NEXTAUTH_URL;
   const MIN_LENGTH = 280;
   const sentences = paragraph.split(". ");
 
@@ -66,7 +67,7 @@ const BlogDetails = ({ params }) => {
   async function fetchBlog() {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/blog/${params.id}`
+        `${NextUrl}/api/blog/${params.id}`
       );
       const blog = await response.json();
       setBlogDetails(blog);
@@ -95,7 +96,7 @@ const BlogDetails = ({ params }) => {
       if (confirmModal) {
         setIsDeleting(true);
         const response = await fetch(
-          `http://localhost:3000/api/blog/${params.id}`,
+          `${NextUrl}/api/blog/${params.id}`,
           {
             method: "DELETE",
             headers: {
@@ -125,7 +126,7 @@ const BlogDetails = ({ params }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/blog/${params.id}/like`,
+        `${NextUrl}/api/blog/${params.id}/like`,
         {
           method: "PUT",
           headers: {
@@ -164,7 +165,7 @@ const BlogDetails = ({ params }) => {
       };
 
       const response = await fetch(
-        `http://localhost:3000/api/blog/${params.id}/comment`,
+        `${NextUrl}/api/blog/${params.id}/comment`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -195,7 +196,7 @@ const BlogDetails = ({ params }) => {
   const handleDeleteComment = async(commentId) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/blog/${params.id}/comment/${commentId}`,
+        `${NextUrl}/api/blog/${params.id}/comment/${commentId}`,
         {
           headers: {
             "Content-Type": "application/json",

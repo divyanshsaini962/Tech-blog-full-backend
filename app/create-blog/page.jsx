@@ -19,8 +19,9 @@ const initialState ={
 }
 
  const CreateBlog = () => {
- const CLOUD_NAME="dv34vio38"
- const UPLOAD_PRESET="NEXTJS_BLOG_WEBSITE"
+  const NextUrl = process.env.NEXTAUTH_URL;
+ const CLOUD_NAME=process.env.CLOUD_NAME;
+ const UPLOAD_PRESET=process.env.UPLOAD_PRESET;
 
   const [state,setState] = useState(initialState);
   const [error,setError] = useState("");
@@ -91,7 +92,7 @@ const initialState ={
         image,
         authorId: session?.user?._id // Added optional chaining
       }
-      const response = await fetch("http://localhost:3000/api/blog",{
+      const response = await fetch(`${NextUrl}/api/blog`,{
         headers:{
           "Content-Type":"application/json", 
           Authorization:`Bearer ${session?.user?.accessToken}`

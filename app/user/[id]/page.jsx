@@ -2,7 +2,8 @@ import React from 'react';
 import ProfileDetails from './ProfileDetails';
 
 async function getUserData(params) {
-    const res = await fetch(`http://localhost:3000/api/user/${params.id}`, {
+  const NextUrl = process.env.NEXTAUTH_URL
+    const res = await fetch(`${NextUrl}/api/user/${params.id}`, {
       cache: "no-store",
     });
   

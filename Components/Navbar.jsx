@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation'
 import {signOut, useSession} from 'next-auth/react'
 
 const Navbar = () => {
+    const NextUrl = process.env.NEXTAUTH_URL;
     const [userData, setUserData] = useState({})
     const {data: session, status} = useSession();
 
@@ -17,7 +18,7 @@ const Navbar = () => {
 
     async function fetchUser() {
         try {
-            const res = await fetch(`http://localhost:3000/api/user/${session?.user?._id}`);
+            const res = await fetch(`${NextUrl}/api/user/${session?.user?._id}`);
 
             const resData = await res.json();
 
