@@ -2,10 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
-import Input from "@/components/Input";
+import Input from "../../../../Components/input";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import TextArea from "@/components/TextArea";
+import TextArea from "../../../../Components/TextArea";
 import demoImage from "@/public/img/profile.jpg";
 import Image from "next/image";
 import { deletePhoto } from "@/action/uploadAction";

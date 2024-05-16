@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import moment from "moment";
-import Modal from "@/components/Modal";
+import Modal from "../../../Components/Modal";
 import { deletePhoto } from "@/action/uploadAction";
-import Input from "@/components/Input";
+import Input from "../../../Components/input";
 import demoImage from "@/public/img/profile.jpg";
 import { AiOutlineClose } from "react-icons/ai";
 

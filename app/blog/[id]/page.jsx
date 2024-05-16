@@ -16,7 +16,7 @@ import {
 import { BsFillPencilFill, BsTrash } from "react-icons/bs";
 
 import demoImage from "@/public/img/profile.jpg";
-import Input from "@/components/Input";
+import Input from "../../../Components/input";
 import { deletePhoto } from "@/action/uploadAction";
 
 function splitParagraph(paragraph) {
