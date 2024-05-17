@@ -20,7 +20,7 @@ import Input from "../../../Components/input";
 import { deletePhoto } from "@/action/uploadAction";
 
 function splitParagraph(paragraph) {
-  const NextUrl = process.env.NEXTAUTH_URL;
+  
   const MIN_LENGTH = 280;
   const sentences = paragraph.split(". ");
 
@@ -63,6 +63,7 @@ const BlogDetails = ({ params }) => {
 
   const router = useRouter();
   const { data: session, status } = useSession();
+  const NextUrl = process.env.NEXTAUTH_URL
 
   async function fetchBlog() {
     try {
